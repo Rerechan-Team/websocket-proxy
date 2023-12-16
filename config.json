@@ -2,7 +2,7 @@
   "log" : {
     "access": "/var/log/xray/access.log",
     "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
+    "loglevel": "info"
   },
   "inbounds": [
       {
@@ -15,13 +15,14 @@
       "tag": "api"
     },
    {
-     "listen": "/run/xray/vless_ws.sock",
+     "listen": "127.0.0.1",
+     "port": "14016",
      "protocol": "vless",
       "settings": {
           "decryption":"none",
             "clients": [
                {
-                 "id": "cc6e4376-77ae-4a68-a199-6bfae44a9626"                 
+                 "id": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d"                 
 #vless
              }
           ]
@@ -29,17 +30,18 @@
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/vlessws"
+                "path": "/v"
           }
         }
      },
      {
-     "listen": "/run/xray/vmess_ws.sock",
+     "listen": "127.0.0.1",
+     "port": "23456",
      "protocol": "vmess",
       "settings": {
             "clients": [
                {
-                 "id": "cc6e4376-77ae-4a68-a199-6bfae44a9626",
+                 "id": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d",
                  "alterId": 0
 #vmess
              }
@@ -48,18 +50,19 @@
        "streamSettings":{
          "network": "ws",
             "wsSettings": {
-                "path": "/vmessws"
+                "path": "/vmess"
           }
         }
      },
     {
-      "listen": "/run/xray/trojan_ws.sock",
+      "listen": "127.0.0.1",
+      "port": "25432",
       "protocol": "trojan",
       "settings": {
           "decryption":"none",		
            "clients": [
               {
-                 "password": "cc6e4376-77ae-4a68-a199-6bfae44a9626"
+                 "password": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d"
 #trojanws
               }
           ],
@@ -68,18 +71,19 @@
        "streamSettings":{
            "network": "ws",
            "wsSettings": {
-               "path": "/trojanws"
+               "path": "/t"
             }
          }
-     },	
+     },
       {
-        "listen": "/run/xray/vless_grpc.sock",
+        "listen": "127.0.0.1",
+     "port": "24456",
         "protocol": "vless",
         "settings": {
          "decryption":"none",
            "clients": [
              {
-               "id": "cc6e4376-77ae-4a68-a199-6bfae44a9626"
+               "id": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d"
 #vlessgrpc
              }
           ]
@@ -92,12 +96,13 @@
         }
      },
      {
-      "listen": "/run/xray/vmess_grpc.sock",
+      "listen": "127.0.0.1",
+     "port": "31234",
      "protocol": "vmess",
       "settings": {
             "clients": [
                {
-                 "id": "cc6e4376-77ae-4a68-a199-6bfae44a9626",
+                 "id": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d",
                  "alterId": 0
 #vmessgrpc
              }
@@ -111,13 +116,14 @@
         }
      },
      {
-        "listen": "/run/xray/trojan_grpc.sock",
+        "listen": "127.0.0.1",
+     "port": "33456",
         "protocol": "trojan",
         "settings": {
           "decryption":"none",
              "clients": [
                {
-                 "password": "cc6e4376-77ae-4a68-a199-6bfae44a9626"
+                 "password": "cfbbaafc-8d52-450c-9fb0-145bc8221e6d"
 #trojangrpc
                }
            ]
