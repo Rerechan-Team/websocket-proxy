@@ -3,3 +3,6 @@ listen:
 - target_host: 127.0.0.1
   target_port: 22
   listen_port: 8880
+- target_host: 0.0.0.0
+  target_port: 1194
+  listen_port: 2082
